@@ -15,6 +15,7 @@
 		6A1DDE3A1FEB86F500D3BF66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1DDE381FEB86F500D3BF66 /* LaunchScreen.storyboard */; };
 		6A821B202007461500197F7B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A821B1F2007461500197F7B /* Item.swift */; };
 		6A821B222007462A00197F7B /* Caegory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A821B212007462A00197F7B /* Caegory.swift */; };
+		6AD87C392008BC9D00FC37B6 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD87C382008BC9D00FC37B6 /* SwipeTableViewController.swift */; };
 		81FF7C64EA52B26A5F8EC06C /* Pods_Todoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D6A53BF49DDB03617B166F /* Pods_Todoey.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		6A1DDE3B1FEB86F500D3BF66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A821B1F2007461500197F7B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		6A821B212007462A00197F7B /* Caegory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caegory.swift; sourceTree = "<group>"; };
+		6AD87C382008BC9D00FC37B6 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		7D57175B42E20B29CFD119EC /* Pods-Todoey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Todoey/Pods-Todoey.debug.xcconfig"; sourceTree = "<group>"; };
 		C6D6A53BF49DDB03617B166F /* Pods_Todoey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todoey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -69,7 +71,6 @@
 			children = (
 				6A1DDE2F1FEB86F500D3BF66 /* AppDelegate.swift */,
 				6A4BA4A11FF3681A008EEE73 /* Controlers */,
-				6A4BA4A21FF36829008EEE73 /* Data Model */,
 				6A4BA4A31FF36841008EEE73 /* Views */,
 				6A4BA4A41FF36865008EEE73 /* Supporting Files */,
 				6A1DDE3B1FEB86F500D3BF66 /* Info.plist */,
@@ -82,6 +83,7 @@
 			children = (
 				6A1D4F9D2004D3D10035340A /* CategoryViewController.swift */,
 				6A1DDE311FEB86F500D3BF66 /* TodoListViewController.swift */,
+				6AD87C382008BC9D00FC37B6 /* SwipeTableViewController.swift */,
 			);
 			path = Controlers;
 			sourceTree = "<group>";
@@ -115,6 +117,7 @@
 		9A88C30C6D30CA3DB1A044EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A4BA4A21FF36829008EEE73 /* Data Model */,
 				C6D6A53BF49DDB03617B166F /* Pods_Todoey.framework */,
 			);
 			name = Frameworks;
@@ -240,13 +243,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Todoey/Pods-Todoey-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -264,6 +271,7 @@
 				6A821B202007461500197F7B /* Item.swift in Sources */,
 				6A1D4F9E2004D3D10035340A /* CategoryViewController.swift in Sources */,
 				6A1DDE321FEB86F500D3BF66 /* TodoListViewController.swift in Sources */,
+				6AD87C392008BC9D00FC37B6 /* SwipeTableViewController.swift in Sources */,
 				6A1DDE301FEB86F500D3BF66 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
