@@ -10,6 +10,7 @@ import UIKit
 //import CoreData
 import RealmSwift
 //import SwipeCellKit
+import ChameleonFramework
 
 class TodoListViewController: SwipeTableViewController{
 
@@ -40,10 +41,32 @@ class TodoListViewController: SwipeTableViewController{
        loadItems()
         
         tableView.rowHeight = 75.0
+        tableView.separatorStyle = .none
         
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if let colourHex = selectedCategory?.colour {
+            
+            let navBar = navigationController?.navigationBar
+            
+            navBar?.barTintColor = UIColor(hexString : colourHex)
+            
+            navBar?.tintColor = ContrastColorOf(UIColor(hexString : colourHex)!, returnFlat: true)
+            
+            navBar?.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : ContrastColorOf(UIColor(hexString : colourHex)!, returnFlat: true)]
+            searchBar.barTintColor = UIColor(hexString : colourHex)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let originalcolour = UIColor(hexString : "1D9BF6") else{ fatalError()}
+         navigationController?.navigationBar.barTintColor = originalcolour
+        
+    }
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     //MARK: - TableView Datasource Method
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,10 +80,14 @@ class TodoListViewController: SwipeTableViewController{
         
         if  let item = todoItems?[indexPath.row] {
         
-        cell.textLabel?.text = item.tittle
+            cell.textLabel?.text = item.tittle
+            if let colour = UIColor(hexString: selectedCategory!.colour)?.darken(byPercentage: CGFloat(indexPath.row)/CGFloat(todoItems!.count)) {
+                cell.backgroundColor = colour
+                cell.textLabel?.textColor = ContrastColorOf(colour, returnFlat: true)
+            }
         
-        cell.accessoryType = item.done ? .checkmark : .none
-        } else {
+            cell.accessoryType = item.done ? .checkmark : .none
+            } else {
             cell.textLabel?.text = "Not added yet any item"
         }
         return cell
